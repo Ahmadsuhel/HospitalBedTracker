@@ -1,0 +1,21 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Environment secrets
+appsettings.Development.json
+
+# Docker
+.dockerignore
+
+# Logs
+*.log
+
+# NuGet
+packages/
+*.nupkg

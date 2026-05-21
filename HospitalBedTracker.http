@@ -1,0 +1,6 @@
+@HospitalBedTracker_HostAddress = http://localhost:5259
+
+GET {{HospitalBedTracker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

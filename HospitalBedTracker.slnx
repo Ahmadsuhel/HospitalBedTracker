@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../HospitalBedTracker.Application/HospitalBedTracker.Application.csproj" />
+  <Project Path="../HospitalBedTracker.Domain/HospitalBedTracker.Domain.csproj" />
+  <Project Path="../HospitalBedTracker.Infrastructure/HospitalBedTracker.Infrastructure.csproj" />
+  <Project Path="HospitalBedTracker.csproj" />
+</Solution>
