@@ -1,0 +1,50 @@
+<div class="hospital-section">
+  <div class="section-header">
+    <h2>🏥 Hospitals Overview</h2>
+    <span class="count-badge">{{ hospitals.length }} hospitals</span>
+  </div>
+
+  <div class="hospital-grid">
+    <div class="hospital-card"
+      *ngFor="let h of hospitals"
+      [class]="'border-' + getStatusColor(h.overallStatus)">
+
+      <div class="hospital-header">
+        <div>
+          <h3>{{ h.name }}</h3>
+          <p class="address">📍 {{ h.address }}</p>
+        </div>
+        <span class="status-pill" [class]="'pill-' + getStatusColor(h.overallStatus)">
+          {{ h.overallStatus }}
+        </span>
+      </div>
+
+      <div class="bed-types">
+        <div class="bed-type-item" *ngFor="let bed of h.beds">
+          <div class="bed-info">
+            <span class="bed-name">{{ bed.bedType }}</span>
+            <span class="bed-count">
+              <strong>{{ bed.available }}</strong>/{{ bed.total }}
+            </span>
+          </div>
+          <mat-progress-bar
+            mode="determinate"
+            [value]="bed.occupancyPercent"
+            [color]="getProgressColor(bed.occupancyPercent)">
+          </mat-progress-bar>
+        </div>
+      </div>
+
+      <div class="hospital-footer">
+        <span *ngIf="h.phone">📞 {{ h.phone }}</span>
+        <span class="updated">🕐 {{ h.lastUpdated | date:'HH:mm' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="hospitals.length === 0 && !isLoading">
+    <span>🏥</span>
+    <p>No hospitals found for this city</p>
+  </div>
+</div>

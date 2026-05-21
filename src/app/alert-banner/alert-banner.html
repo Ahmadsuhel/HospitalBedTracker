@@ -1,0 +1,10 @@
+<div class="alerts-container" *ngIf="alerts.length > 0">
+  <div class="alert-item" *ngFor="let alert of alerts">
+    <mat-icon>warning</mat-icon>
+    <span>
+      🚨 <strong>CRITICAL:</strong> {{ alert.hospitalName }} —
+      Only <strong>{{ alert.availableBeds }}</strong> ICU beds remaining!
+    </span>
+    <span class="alert-time">{{ alert.alertTime | date:'HH:mm:ss' }}</span>
+  </div>
+</div>

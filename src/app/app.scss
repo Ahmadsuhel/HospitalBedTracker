@@ -1,0 +1,90 @@
+.app-wrapper {
+  min-height: 100vh;
+  background: var(--bg-dark);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .logo-icon {
+    font-size: 32px;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline {
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: block;
+  }
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    animation: pulse 1.5s infinite;
+  }
+}
+
+.city-select {
+  width: 160px;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background: var(--bg-card) !important;
+  }
+
+  ::ng-deep .mat-mdc-floating-label,
+  ::ng-deep .mat-mdc-select-value {
+    color: var(--text-primary) !important;
+  }
+}
+
+.main-content {
+  padding: 24px 32px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}

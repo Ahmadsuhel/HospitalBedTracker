@@ -1,0 +1,50 @@
+<div class="dashboard">
+  <!-- Summary Cards -->
+  <div class="summary-grid" *ngIf="!isLoading && cityData">
+    <app-bed-card
+      title="ICU Beds"
+      icon="local_hospital"
+      [available]="cityData.totals.availableICU"
+      [total]="cityData.totals.totalICU"
+      color="danger">
+    </app-bed-card>
+    <app-bed-card
+      title="General Beds"
+      icon="hotel"
+      [available]="cityData.totals.availableGeneral"
+      [total]="cityData.totals.totalGeneral"
+      color="primary">
+    </app-bed-card>
+    <app-bed-card
+      title="Oxygen Beds"
+      icon="air"
+      [available]="cityData.totals.availableOxygen"
+      [total]="cityData.totals.totalOxygen"
+      color="warning">
+    </app-bed-card>
+    <app-bed-card
+      title="Ventilators"
+      icon="monitor_heart"
+      [available]="cityData.totals.availableVentilator"
+      [total]="cityData.totals.totalVentilator"
+      color="success">
+    </app-bed-card>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-grid" *ngIf="isLoading">
+    <div class="skeleton-card" *ngFor="let i of [1,2,3,4]"></div>
+  </div>
+
+  <!-- Last Updated -->
+  <div class="last-updated" *ngIf="lastUpdated">
+    <mat-icon>update</mat-icon>
+    Last updated: {{ lastUpdated | date:'HH:mm:ss' }}
+  </div>
+
+  <!-- Hospital List -->
+  <app-hospital-list
+    [hospitals]="cityData?.hospitals || []"
+    [isLoading]="isLoading">
+  </app-hospital-list>
+</div>

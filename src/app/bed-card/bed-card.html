@@ -1,0 +1,27 @@
+<div class="bed-card" [class]="'card-' + color">
+  <div class="card-header">
+    <div class="icon-wrap" [class]="'icon-' + color">
+      <mat-icon>{{ icon }}</mat-icon>
+    </div>
+    <span class="status-badge" [class]="statusClass">
+      {{ statusLabel }}
+    </span>
+  </div>
+
+  <div class="card-body">
+    <div class="available-count">{{ available }}</div>
+    <div class="total-label">of {{ total }} available</div>
+  </div>
+
+  <div class="card-footer">
+    <span class="title">{{ title }}</span>
+    <span class="percent">{{ occupancyPercent }}% occupied</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill"
+      [class]="'fill-' + color"
+      [style.width.%]="occupancyPercent">
+    </div>
+  </div>
+</div>
